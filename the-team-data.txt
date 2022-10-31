@@ -1,0 +1,13 @@
+Team{Name=null, Number Of Players =11
+[Player{jerseyNumber=97, grade=21, name='Lior', position='Defender'}
+, Player{jerseyNumber=60, grade=16, name='David', position='Defender'}
+, Player{jerseyNumber=68, grade=72, name='Joey', position='Defender'}
+, Player{jerseyNumber=17, grade=69, name='Barney', position='Defender'}
+, Player{jerseyNumber=56, grade=27, name='Samer', position='Midfielder'}
+, Player{jerseyNumber=32, grade=98, name='Lion', position='Midfielder'}
+, Player{jerseyNumber=47, grade=98, name='Jamal', position='Midfielder'}
+, Player{jerseyNumber=84, grade=35, name='Moshe', position='Attacker'}
+, Player{jerseyNumber=80, grade=74, name='Ted', position='Attacker'}
+, Player{jerseyNumber=71, grade=24, name='Sagi', position='Attacker'}
+, Player{jerseyNumber=39, grade=25, name='Michel', position='Goal Keeper'}
+]
