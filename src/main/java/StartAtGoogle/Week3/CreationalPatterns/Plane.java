@@ -1,6 +1,17 @@
 package StartAtGoogle.Week3.CreationalPatterns;
 
+import java.util.concurrent.ThreadLocalRandom;
+
 public class Plane implements Vehicle{
+    private String id;
+    public Plane() {
+        this.id = "Plane"+ ThreadLocalRandom.current().nextInt(100);
+    }
+
+    public String getId() {
+        return id;
+    }
+
     @Override
     public void move() {
         System.out.println("Plane is flying");
@@ -8,7 +19,14 @@ public class Plane implements Vehicle{
 
     @Override
     public void transport(Passenger passenger) {
-        System.out.println(passenger.getName()+" is transported");
+        System.out.println(passenger.getName()+" is transported by "+getId());
         move();
+    }
+
+    @Override
+    public String toString() {
+        return "Plane{" +
+                "id='" + id + '\'' +
+                '}';
     }
 }

@@ -25,10 +25,6 @@ public class Passenger {
         return favVehicle;
     }
 
-    public void setFavVehicle(VehicleType favVehicle) {
-        this.favVehicle = favVehicle;
-    }
-
     @Override
     public String toString() {
         return "Passenger{" +
