@@ -25,14 +25,16 @@ public class HttpFacade {
 
         Response result = new Response();
         HttpGet get = new HttpGet(url);
-        get.addHeader("header for GET","Get");
+        get.addHeader("header for GET", "Get");
 
 
         try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
 
             try (CloseableHttpResponse response = httpClient.execute(get)) {
-                result.setBody(EntityUtils.toString(response.getEntity()));
-                result.setStatusCode(response.getCode());
+                if (response.getEntity() != null) {
+                    result.setBody(EntityUtils.toString(response.getEntity()));
+                    result.setStatusCode(response.getCode());
+                }
             } catch (ParseException | IOException e) {
                 throw new RuntimeException(e);
             }
@@ -49,9 +51,10 @@ public class HttpFacade {
 
         try (CloseableHttpClient httpClient = HttpClients.createDefault();
              CloseableHttpResponse response = httpClient.execute(post)) {
-
-            result.setBody(EntityUtils.toString(response.getEntity()));
-            result.setStatusCode(response.getCode());
+            if (response.getEntity() != null) {
+                result.setBody(EntityUtils.toString(response.getEntity()));
+                result.setStatusCode(response.getCode());
+            }
         } catch (ParseException e) {
             throw new RuntimeException(e);
         }
@@ -67,25 +70,31 @@ public class HttpFacade {
 
         try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
             CloseableHttpResponse response = httpClient.execute(put);
-            result.setBody(EntityUtils.toString(response.getEntity()));
-            result.setStatusCode(response.getCode());
+            if (response.getEntity() != null) {
+                result.setBody(EntityUtils.toString(response.getEntity()));
+                result.setStatusCode(response.getCode());
+            }
         } catch (ParseException | IOException e) {
             throw new RuntimeException(e);
         }
         return result;
     }
 
-    public Response deleteReq(String url) throws IOException {
+    public Response deleteReq(String url) throws IOException, ParseException {
 
         Response result = new Response();
         HttpDelete delete = new HttpDelete(url);
         CloseableHttpClient httpClient = HttpClients.createDefault();
 
-        delete.addHeader("header for delete","Delete");
+        delete.addHeader("header for delete", "Delete");
 
         try (CloseableHttpResponse response = httpClient.execute(delete)) {
-            result.setStatusCode(response.getCode());
-            result.setBody(response.getReasonPhrase());
+            if (response.getEntity() != null) {
+                result.setBody(EntityUtils.toString(response.getEntity()));
+                result.setStatusCode(response.getCode());
+            }
+        } catch (ParseException | IOException e) {
+            throw new RuntimeException(e);
         }
         return result;
     }
@@ -100,9 +109,10 @@ public class HttpFacade {
         try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
 
             CloseableHttpResponse response = httpClient.execute(patch);
-
-            result.setBody(EntityUtils.toString(response.getEntity()));
-            result.setStatusCode(response.getCode());
+            if (response.getEntity() != null) {
+                result.setBody(EntityUtils.toString(response.getEntity()));
+                result.setStatusCode(response.getCode());
+            }
 
         } catch (ParseException | IOException e) {
             throw new RuntimeException(e);
