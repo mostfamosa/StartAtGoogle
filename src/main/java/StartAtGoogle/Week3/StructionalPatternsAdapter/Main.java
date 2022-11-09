@@ -1,5 +1,7 @@
 package StartAtGoogle.Week3.StructionalPatternsAdapter;
 
+import StartAtGoogle.Week4.DebugWithLog.Debugger;
+
 public class Main {
     public static void main(String[] args) {
 
