@@ -1,10 +1,7 @@
 package StartAtGoogle.Week2.Reflection;
 
-import StartAtGoogle.Week2.Generator;
-
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Type;
 import java.util.Optional;
 
 public class Main {

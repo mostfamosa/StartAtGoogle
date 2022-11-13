@@ -12,6 +12,10 @@ public class Player {
         this.grade = grade;
     }
 
+    public Player() {
+
+    }
+
     public String getPosition() {
         return position;
     }
